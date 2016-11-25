@@ -130,7 +130,7 @@ class StatsRegistrations extends ModuleGraph
 		<h4>'.$this->l('Guide').'</h4>
 		<div class="alert alert-warning">
 			<h4>'.$this->l('Number of customer accounts created').'</h4>
-			<p>'.$this->l('The total number of accounts created is not in itself important information. However, it is beneficial to analyze the number created over time. This will indicate whether or not things are on the right track. You feel me?').'</p>
+			<p>'.$this->l('The total number of accounts created is not in itself important information. However, it is beneficial to analyze the number created over time. This will indicate whether or not things are on the right track!').'</p>
 		</div>
 		<h4>'.$this->l('How to act on the registrations\' evolution?').'</h4>
 		<div class="alert alert-warning">
