@@ -37,15 +37,15 @@ class statsregistrations extends ModuleGraph
     {
         $this->name = 'statsregistrations';
         $this->tab = 'analytics_stats';
-        $this->version = '1.4.0';
+        $this->version = '2.0.0';
         $this->author = 'PrestaShop';
         $this->need_instance = 0;
 
         parent::__construct();
 
-        $this->displayName = $this->l('Customer accounts');
-        $this->description = $this->l('Adds a registration progress tab to the Stats dashboard.');
-        $this->ps_versions_compliancy = array('min' => '1.6', 'max' => _PS_VERSION_);
+        $this->displayName = $this->trans('Customer accounts', array(), 'Modules.Statsregistrations.Admin');
+        $this->description = $this->trans('Adds a registration progress tab to the Stats dashboard.', array(), 'Modules.Statsregistrations.Admin');
+        $this->ps_versions_compliancy = array('min' => '1.7.0.0', 'max' => _PS_VERSION_);
     }
 
     /**
@@ -123,26 +123,26 @@ class statsregistrations extends ModuleGraph
 		<div class="alert alert-info">
 			<ul>
 				<li>
-					'.$this->l('Number of visitors who stopped at the registering step:').' <span class="totalStats">'.(int)$total_blocked.($total_registrations ? ' ('.number_format(100 * $total_blocked / ($total_registrations + $total_blocked), 2).'%)' : '').'</span></li>
-					<li>'.$this->l('Number of visitors who placed an order directly after registration:').' <span class="totalStats">'.(int)$total_buyers.($total_registrations ? ' ('.number_format(100 * $total_buyers / ($total_registrations), 2).'%)' : '').'</span></li>
+					'.$this->trans('Number of visitors who stopped at the registering step:', array(), 'Modules.Statsregistrations.Admin').' <span class="totalStats">'.(int)$total_blocked.($total_registrations ? ' ('.number_format(100 * $total_blocked / ($total_registrations + $total_blocked), 2).'%)' : '').'</span></li>
+					<li>'.$this->trans('Number of visitors who placed an order directly after registration:', array(), 'Modules.Statsregistrations.Admin').' <span class="totalStats">'.(int)$total_buyers.($total_registrations ? ' ('.number_format(100 * $total_buyers / ($total_registrations), 2).'%)' : '').'</span></li>
 				<li>
-					'.$this->l('Total customer accounts:').' <span class="totalStats">'.$total_registrations.'</span></li>
+					'.$this->trans('Total customer accounts:', array(), 'Modules.Statsregistrations.Admin').' <span class="totalStats">'.$total_registrations.'</span></li>
 			</ul>
 		</div>
-		<h4>'.$this->l('Guide').'</h4>
+		<h4>'.$this->trans('Guide', array(), 'Admin.Global').'</h4>
 		<div class="alert alert-warning">
-			<h4>'.$this->l('Number of customer accounts created').'</h4>
-			<p>'.$this->l('The total number of accounts created is not in itself important information. However, it is beneficial to analyze the number created over time. This will indicate whether or not things are on the right track. You feel me?').'</p>
+			<h4>'.$this->trans('Number of customer accounts created', array(), 'Modules.Statsregistrations.Admin').'</h4>
+			<p>'.$this->trans('The total number of accounts created is not in itself important information. However, it is beneficial to analyze the number created over time. This will indicate whether or not things are on the right track. You feel me?', array(), 'Modules.Statsregistrations.Admin').'</p>
 		</div>
-		<h4>'.$this->l('How to act on the registrations\' evolution?').'</h4>
+		<h4>'.$this->trans('How to act on the registrations\' evolution?', array(), 'Modules.Statsregistrations.Admin').'</h4>
 		<div class="alert alert-warning">
-			'.$this->l('If you let your shop run without changing anything, the number of customer registrations should stay stable or show a slight decline.').'
-			'.$this->l('A significant increase or decrease in customer registration shows that there has probably been a change to your shop. With that in mind, we suggest that you identify the cause, correct the issue and get back in the business of making money!').'<br />
-			'.$this->l('Here is a summary of what may affect the creation of customer accounts:').'
+			'.$this->trans('If you let your shop run without changing anything, the number of customer registrations should stay stable or show a slight decline.', array(), 'Modules.Statsregistrations.Admin').'
+			'.$this->trans('A significant increase or decrease in customer registration shows that there has probably been a change to your shop. With that in mind, we suggest that you identify the cause, correct the issue and get back in the business of making money!', array(), 'Modules.Statsregistrations.Admin').'<br />
+			'.$this->trans('Here is a summary of what may affect the creation of customer accounts:', array(), 'Modules.Statsregistrations.Admin').'
 			<ul>
-				<li>'.$this->l('An advertising campaign can attract an increased number of visitors to your online store. This will likely be followed by an increase in customer accounts and profit margins, which will depend on customer "quality." Well-targeted advertising is typically more effective than large-scale advertising... and it\'s cheaper too!').'</li>
-				<li>'.$this->l('Specials, sales, promotions and/or contests typically demand a shoppers\' attentions. Offering such things will not only keep your business lively, it will also increase traffic, build customer loyalty and genuinely change your current e-commerce philosophy.').'</li>
-				<li>'.$this->l('Design and user-friendliness are more important than ever in the world of online sales. An ill-chosen or hard-to-follow graphical theme can keep shoppers at bay. This means that you should aspire to find the right balance between beauty and functionality for your online store.').'</li>
+				<li>'.$this->trans('An advertising campaign can attract an increased number of visitors to your online store. This will likely be followed by an increase in customer accounts and profit margins, which will depend on customer "quality." Well-targeted advertising is typically more effective than large-scale advertising... and it\'s cheaper too!', array(), 'Modules.Statsregistrations.Admin').'</li>
+				<li>'.$this->trans('Specials, sales, promotions and/or contests typically demand a shoppers\' attentions. Offering such things will not only keep your business lively, it will also increase traffic, build customer loyalty and genuinely change your current e-commerce philosophy.', array(), 'Modules.Statsregistrations.Admin').'</li>
+				<li>'.$this->trans('Design and user-friendliness are more important than ever in the world of online sales. An ill-chosen or hard-to-follow graphical theme can keep shoppers at bay. This means that you should aspire to find the right balance between beauty and functionality for your online store.', array(), 'Modules.Statsregistrations.Admin').'</li>
 			</ul>
 		</div>
 		
@@ -153,7 +153,7 @@ class statsregistrations extends ModuleGraph
 				</div>
 				<div class="col-lg-4">
 					<a class="btn btn-default export-csv" href="'.Tools::safeOutput($_SERVER['REQUEST_URI'].'&export=1').'">
-						<i class="icon-cloud-upload"></i>'.$this->l('CSV Export').'
+						<i class="icon-cloud-upload"></i>'.$this->trans('CSV Export', array(), 'Modules.Statsregistrations.Admin').'
 					</a>
 				</div>
 			</div>
@@ -170,7 +170,7 @@ class statsregistrations extends ModuleGraph
 			WHERE 1
 				'.Shop::addSqlRestriction(Shop::SHARE_CUSTOMER).'
 				AND `date_add` BETWEEN';
-        $this->_titles['main'] = $this->l('Number of customer accounts created');
+        $this->_titles['main'] = $this->trans('Number of customer accounts created', array(), 'Modules.Statsregistrations.Admin');
         $this->setDateGraph($layers, true);
     }
 
