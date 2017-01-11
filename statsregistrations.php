@@ -44,7 +44,7 @@ class StatsRegistrations extends ModuleGraph
 
 		$this->displayName = $this->l('Customer accounts');
 		$this->description = $this->l('Adds a registration progress tab to the Stats dashboard.');
-		$this->ps_versions_compliancy = array('min' => '1.6', 'max' => _PS_VERSION_);
+		$this->ps_versions_compliancy = array('min' => '1.6', 'max' => '1.7.0.99');
 	}
 
 	/**
