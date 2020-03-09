@@ -132,7 +132,7 @@ class statsregistrations extends ModuleGraph
 		<h4>'.$this->trans('Guide', array(), 'Admin.Global').'</h4>
 		<div class="alert alert-warning">
 			<h4>'.$this->trans('Number of customer accounts created', array(), 'Modules.Statsregistrations.Admin').'</h4>
-			<p>'.$this->trans('The total number of accounts created is not in itself important information. However, it is beneficial to analyze the number created over time. This will indicate whether or not things are on the right track. You feel me?', array(), 'Modules.Statsregistrations.Admin').'</p>
+			<p>'.$this->trans('The total number of accounts created is not in itself important information. However, it is beneficial to analyze the number created over time. This will indicate whether or not things are on the right track.', array(), 'Modules.Statsregistrations.Admin').'</p>
 		</div>
 		<h4>'.$this->trans('How to act on the registrations\' evolution?', array(), 'Modules.Statsregistrations.Admin').'</h4>
 		<div class="alert alert-warning">
