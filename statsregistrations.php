@@ -53,7 +53,7 @@ class statsregistrations extends ModuleGraph
      */
     public function install()
     {
-        return (parent::install() && $this->registerHook('AdminStatsModules'));
+        return (parent::install() && $this->registerHook('displayAdminStatsModules'));
     }
 
     /**
@@ -105,7 +105,7 @@ class statsregistrations extends ModuleGraph
         return $result['buyers'];
     }
 
-    public function hookAdminStatsModules()
+    public function hookDisplayAdminStatsModules()
     {
         $total_registrations = $this->getTotalRegistrations();
         $total_blocked = $this->getBlockedVisitors();
