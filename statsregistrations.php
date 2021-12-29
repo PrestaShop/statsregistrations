@@ -37,7 +37,7 @@ class statsregistrations extends ModuleGraph
     {
         $this->name = 'statsregistrations';
         $this->tab = 'analytics_stats';
-        $this->version = '2.0.0';
+        $this->version = '2.0.1';
         $this->author = 'PrestaShop';
         $this->need_instance = 0;
 
@@ -53,7 +53,7 @@ class statsregistrations extends ModuleGraph
      */
     public function install()
     {
-        return (parent::install() && $this->registerHook('AdminStatsModules'));
+        return (parent::install() && $this->registerHook('displayAdminStatsModules'));
     }
 
     /**
@@ -105,7 +105,7 @@ class statsregistrations extends ModuleGraph
         return $result['buyers'];
     }
 
-    public function hookAdminStatsModules()
+    public function hookDisplayAdminStatsModules()
     {
         $total_registrations = $this->getTotalRegistrations();
         $total_blocked = $this->getBlockedVisitors();
