@@ -64,7 +64,7 @@ class statsregistrations extends ModuleGraph
 				FROM `' . _DB_PREFIX_ . 'customer`
 				WHERE `date_add` BETWEEN ' . ModuleGraph::getDateBetween() . '
 				' . Shop::addSqlRestriction(Shop::SHARE_ORDER);
-        $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
+        $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->getRow($sql);
 
         return isset($result['total']) ? $result['total'] : 0;
     }
@@ -84,7 +84,7 @@ class statsregistrations extends ModuleGraph
 					' . Shop::addSqlRestriction(false, 'c') . '
 					AND (g.id_customer IS NULL OR g.id_customer = 0)
 					AND c.`date_add` BETWEEN ' . ModuleGraph::getDateBetween();
-        $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
+        $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->getRow($sql);
 
         return $result['blocked'];
     }
@@ -99,7 +99,7 @@ class statsregistrations extends ModuleGraph
 					' . Shop::addSqlRestriction(Shop::SHARE_ORDER, 'o') . '
 					AND o.valid = 1
 					AND ABS(TIMEDIFF(o.date_add, c.date_add)+0) < 120000';
-        $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($sql);
+        $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->getRow($sql);
 
         return $result['buyers'];
     }
@@ -144,7 +144,7 @@ class statsregistrations extends ModuleGraph
 				<li>' . $this->trans('Design and user-friendliness are more important than ever in the world of online sales. An ill-chosen or hard-to-follow graphical theme can keep shoppers at bay. This means that you should aspire to find the right balance between beauty and functionality for your online store.', [], 'Modules.Statsregistrations.Admin') . '</li>
 			</ul>
 		</div>
-		
+
 		<div class="row row-margin-bottom">
 			<div class="col-lg-12">
 				<div class="col-lg-8">
@@ -175,7 +175,7 @@ class statsregistrations extends ModuleGraph
 
     protected function setAllTimeValues($layers)
     {
-        $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($this->query . $this->getDate());
+        $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS($this->query . $this->getDate());
         foreach ($result as $row) {
             ++$this->_values[(int) Tools::substr($row['date_add'], 0, 4)];
         }
@@ -183,7 +183,7 @@ class statsregistrations extends ModuleGraph
 
     protected function setYearValues($layers)
     {
-        $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($this->query . $this->getDate());
+        $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS($this->query . $this->getDate());
         foreach ($result as $row) {
             $mounth = (int) substr($row['date_add'], 5, 2);
             if (!isset($this->_values[$mounth])) {
@@ -195,7 +195,7 @@ class statsregistrations extends ModuleGraph
 
     protected function setMonthValues($layers)
     {
-        $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($this->query . $this->getDate());
+        $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS($this->query . $this->getDate());
         foreach ($result as $row) {
             ++$this->_values[(int) Tools::substr($row['date_add'], 8, 2)];
         }
@@ -203,7 +203,7 @@ class statsregistrations extends ModuleGraph
 
     protected function setDayValues($layers)
     {
-        $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($this->query . $this->getDate());
+        $result = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS($this->query . $this->getDate());
         foreach ($result as $row) {
             ++$this->_values[(int) Tools::substr($row['date_add'], 11, 2)];
         }
