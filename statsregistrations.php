@@ -36,7 +36,7 @@ class statsregistrations extends ModuleGraph
     {
         $this->name = 'statsregistrations';
         $this->tab = 'administration';
-        $this->version = '2.0.1';
+        $this->version = '2.1.0';
         $this->author = 'PrestaShop';
         $this->need_instance = 0;
 
